@@ -10,6 +10,12 @@ type AdminStats = {
     avgSessionSeconds: number;
   };
   topPages: Array<{ path: string; views: number }>;
+  trend7Days: Array<{
+    date: string;
+    visitors: number;
+    sessions: number;
+    pageViews: number;
+  }>;
   fetchedAt: string;
 };
 
@@ -121,6 +127,40 @@ export function AdminDashboardPage() {
                 )}
               </ul>
               <p className="mt-4 text-xs text-ink-500">마지막 갱신: {new Date(stats.fetchedAt).toLocaleString("ko-KR")}</p>
+            </section>
+
+            <section className="rounded-2xl border border-white/10 bg-ink-900/35 p-5">
+              <h2 className="text-lg font-bold text-white">최근 7일 추이</h2>
+              <div className="mt-4 overflow-x-auto">
+                <table className="min-w-full text-left text-sm text-ink-200">
+                  <thead className="text-ink-400">
+                    <tr>
+                      <th className="px-3 py-2 font-semibold">날짜</th>
+                      <th className="px-3 py-2 font-semibold">방문자</th>
+                      <th className="px-3 py-2 font-semibold">세션</th>
+                      <th className="px-3 py-2 font-semibold">페이지뷰</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {stats.trend7Days.length === 0 ? (
+                      <tr>
+                        <td colSpan={4} className="px-3 py-3 text-ink-400">
+                          아직 최근 7일 데이터가 없습니다.
+                        </td>
+                      </tr>
+                    ) : (
+                      stats.trend7Days.map((row) => (
+                        <tr key={row.date} className="border-t border-white/10">
+                          <td className="px-3 py-2">{row.date}</td>
+                          <td className="px-3 py-2">{row.visitors.toLocaleString()}명</td>
+                          <td className="px-3 py-2">{row.sessions.toLocaleString()}회</td>
+                          <td className="px-3 py-2">{row.pageViews.toLocaleString()}회</td>
+                        </tr>
+                      ))
+                    )}
+                  </tbody>
+                </table>
+              </div>
             </section>
           </div>
         ) : null}

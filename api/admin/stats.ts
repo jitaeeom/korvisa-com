@@ -101,6 +101,27 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       views: Number(r.metricValues?.[0]?.value ?? "0"),
     }));
 
+    const [trendReport] = await client.runReport({
+      property,
+      dateRanges: [{ startDate: "6daysAgo", endDate: "today" }],
+      dimensions: [{ name: "date" }],
+      metrics: [{ name: "activeUsers" }, { name: "sessions" }, { name: "screenPageViews" }],
+      orderBys: [{ dimension: { dimensionName: "date" }, desc: false }],
+    });
+
+    const trend7Days = (trendReport.rows ?? []).map((r) => {
+      const dateRaw = r.dimensionValues?.[0]?.value ?? "";
+      const y = dateRaw.slice(0, 4);
+      const m = dateRaw.slice(4, 6);
+      const d = dateRaw.slice(6, 8);
+      return {
+        date: y && m && d ? `${y}-${m}-${d}` : dateRaw,
+        visitors: Number(r.metricValues?.[0]?.value ?? "0"),
+        sessions: Number(r.metricValues?.[1]?.value ?? "0"),
+        pageViews: Number(r.metricValues?.[2]?.value ?? "0"),
+      };
+    });
+
     return res.status(200).json({
       today: {
         visitors: Math.round(metrics.activeUsers ?? 0),
@@ -110,6 +131,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         avgSessionSeconds: Number((metrics.averageSessionDuration ?? 0).toFixed(1)),
       },
       topPages,
+      trend7Days,
       fetchedAt: new Date().toISOString(),
     });
   } catch (error) {
