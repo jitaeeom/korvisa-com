@@ -1,5 +1,4 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { setAdminSession } from "../_lib/adminAuth";
 
 function json(res: VercelResponse, status: number, body: Record<string, unknown>) {
   res.status(status).setHeader("Content-Type", "application/json; charset=utf-8");
@@ -32,6 +31,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return json(res, 401, { error: "비밀번호가 올바르지 않습니다." });
   }
 
-  setAdminSession(res, sessionToken);
+  const isProd = process.env.NODE_ENV === "production";
+  res.setHeader(
+    "Set-Cookie",
+    `korvisa_admin_session=${encodeURIComponent(sessionToken)}; Path=/; HttpOnly; SameSite=Lax; Max-Age=28800${isProd ? "; Secure" : ""}`,
+  );
   return json(res, 200, { ok: true });
 }
