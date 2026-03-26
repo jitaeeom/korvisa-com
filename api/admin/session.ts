@@ -9,7 +9,12 @@ function readCookie(req: VercelRequest, name: string) {
     const i = part.indexOf("=");
     if (i < 0) continue;
     if (part.slice(0, i).trim() !== name) continue;
-    return part.slice(i + 1).trim();
+    const rawValue = part.slice(i + 1).trim();
+    try {
+      return decodeURIComponent(rawValue);
+    } catch {
+      return rawValue;
+    }
   }
   return "";
 }
