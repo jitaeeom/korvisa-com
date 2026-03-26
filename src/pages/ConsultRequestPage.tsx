@@ -1,25 +1,13 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-const CONSULT_TO = "admin@korvisa.com";
 
 export function ConsultRequestPage() {
   const navigate = useNavigate();
   const [consultName, setConsultName] = useState("");
   const [consultTitle, setConsultTitle] = useState("");
   const [consultBody, setConsultBody] = useState("");
-
-  const mailtoHref = useMemo(() => {
-    const subject = consultTitle.trim() || "상담 요청";
-    const author = consultName.trim();
-    const body =
-      `이름(작성자): ${author || "-"}\n\n` + consultBody.trim();
-    const params = new URLSearchParams({
-      subject,
-      body,
-    });
-    return `mailto:${CONSULT_TO}?${params.toString()}`;
-  }, [consultBody, consultName, consultTitle]);
+  const [sendState, setSendState] = useState<"idle" | "sending" | "ok" | "err">("idle");
+  const [sendError, setSendError] = useState("");
 
   const canSend = consultBody.trim().length > 0;
 
@@ -32,11 +20,48 @@ export function ConsultRequestPage() {
           </h1>
 
           <div className="mt-10 overflow-hidden rounded-3xl border border-white/10 bg-ink-900/40 p-6 sm:p-8">
+            {sendState === "ok" ? (
+              <div className="space-y-6 py-4 text-center">
+                <p className="text-lg font-semibold text-white">문의가 전송되었습니다.</p>
+                <p className="text-sm leading-relaxed text-ink-300">
+                  확인 후 가능한 빨리 연락드리겠습니다.
+                </p>
+                <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
+                  <button
+                    type="button"
+                    className="rounded-xl bg-accent px-4 py-2.5 text-sm font-semibold text-white transition hover:opacity-95"
+                    onClick={() => navigate("/")}
+                  >
+                    메인으로
+                  </button>
+                </div>
+              </div>
+            ) : (
             <form
-              onSubmit={(e) => {
+              onSubmit={async (e) => {
                 e.preventDefault();
-                if (!canSend) return;
-                window.location.href = mailtoHref;
+                if (!canSend || sendState === "sending") return;
+                setSendError("");
+                setSendState("sending");
+                try {
+                  const r = await fetch("/api/consult", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                      name: consultName.trim(),
+                      title: consultTitle.trim(),
+                      body: consultBody.trim(),
+                    }),
+                  });
+                  const data = (await r.json().catch(() => ({}))) as { error?: string };
+                  if (!r.ok) {
+                    throw new Error(data.error || "전송에 실패했습니다.");
+                  }
+                  setSendState("ok");
+                } catch (err) {
+                  setSendState("err");
+                  setSendError(err instanceof Error ? err.message : "전송에 실패했습니다.");
+                }
               }}
               className="space-y-5"
             >
@@ -77,6 +102,10 @@ export function ConsultRequestPage() {
                 />
               </div>
 
+              {sendState === "err" && sendError ? (
+                <p className="text-sm text-red-300">{sendError}</p>
+              ) : null}
+
               <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
                 <button
                   type="button"
@@ -87,13 +116,14 @@ export function ConsultRequestPage() {
                 </button>
                 <button
                   type="submit"
-                  disabled={!canSend}
+                  disabled={!canSend || sendState === "sending"}
                   className="rounded-xl bg-accent px-4 py-2.5 text-sm font-semibold text-white transition hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-50"
                 >
-                  메일로 보내기
+                  {sendState === "sending" ? "보내는 중…" : "메일로 보내기"}
                 </button>
               </div>
             </form>
+            )}
           </div>
         </div>
       </section>
