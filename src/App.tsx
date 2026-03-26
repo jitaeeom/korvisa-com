@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { AnalyticsTracker } from "./components/AnalyticsTracker";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
@@ -20,6 +20,11 @@ export default function App() {
       {isAdminRoute ? null : <Header />}
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/visa/e-7" element={<Navigate to="/visa/e7" replace />} />
+        <Route path="/visa/d-8" element={<Navigate to="/visa/d8" replace />} />
+        <Route path="/visa/f-2" element={<Navigate to="/visa/f2" replace />} />
+        <Route path="/visa/f-5" element={<Navigate to="/visa/f5" replace />} />
+        <Route path="/visa/f-6" element={<Navigate to="/visa/f6" replace />} />
         <Route path="/visa/:slug" element={<VisaDetailPage />} />
         <Route path="/housing" element={<HousingPage />} />
         <Route path="/representative" element={<RepresentativePage />} />

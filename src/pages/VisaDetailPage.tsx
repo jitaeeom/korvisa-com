@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
-import { getVisaBySlug } from "../data/visaDetail";
+import { getVisaBySlug, VISA_GRID_ORDER } from "../data/visaDetail";
 
 function upsertMetaContent(opts: { name?: string; property?: string; content: string }) {
   const { name, property, content } = opts;
@@ -36,8 +36,8 @@ export function VisaDetailPage() {
   useEffect(() => {
     if (!visa) return;
 
-    const title = `${visa.code} 비자(${visa.shortName}) — 요건·서류·절차 | Korvisa.com`;
-    const description = `${visa.code} 비자 요건과 필요서류, 진행단계를 한 번에 정리했습니다. (일반 안내이며 개별 사안은 공식 기준 확인 및 전문가 상담 권장)`;
+    const title = `${visa.code} 비자 ${visa.shortName} 준비서류·절차·FAQ | Korvisa.com`;
+    const description = `${visa.code} 비자 ${visa.shortName} 준비서류, 신청 절차, 체크리스트와 FAQ를 한 페이지에서 확인하세요.`;
 
     document.title = title;
     upsertMetaContent({ name: "description", content: description });
@@ -884,6 +884,10 @@ F-5는 점수 경쟁이 아니라
           : visa.slug === "f6"
             ? f6Faq
             : commonFaq;
+  const relatedVisas = VISA_GRID_ORDER.filter((key) => key !== visa.slug)
+    .slice(0, 3)
+    .map((key) => getVisaBySlug(key))
+    .filter((item): item is NonNullable<typeof item> => Boolean(item));
   const faqJsonLd = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -1071,6 +1075,27 @@ F-5는 점수 경쟁이 아니라
           유권해석을 대체하지 않습니다. 최종 신청·심사 기준은 출입국·고용부 등{" "}
           <strong className="text-ink-300">공식 안내와 전문가 상담</strong>을 따르세요.
         </aside>
+
+        <section className="rounded-3xl border border-white/10 bg-ink-900/30 p-6 sm:p-8">
+          <h2 className="text-xl font-bold text-white sm:text-2xl">함께 많이 보는 안내</h2>
+          <div className="mt-5 flex flex-wrap gap-3">
+            {relatedVisas.map((item) => (
+              <Link
+                key={item.slug}
+                to={`/visa/${item.slug}`}
+                className="inline-flex items-center rounded-2xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-semibold text-sky-200 transition hover:border-sky-400/50 hover:bg-white/10"
+              >
+                {item.code} {item.shortName}
+              </Link>
+            ))}
+            <Link
+              to="/housing"
+              className="inline-flex items-center rounded-2xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-semibold text-sky-200 transition hover:border-sky-400/50 hover:bg-white/10"
+            >
+              외국인 주거 안내
+            </Link>
+          </div>
+        </section>
 
         <div className="flex flex-wrap gap-4 pb-4">
           <Link
