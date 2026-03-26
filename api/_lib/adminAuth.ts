@@ -3,15 +3,16 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 const SESSION_COOKIE = "korvisa_admin_session";
 
 function readCookie(req: VercelRequest, name: string): string {
-  const raw = req.headers.cookie ?? "";
+  const header = req.headers.cookie;
+  const raw = Array.isArray(header) ? header.join(";") : header ?? "";
   const parts = raw.split(";").map((v) => v.trim());
   for (const part of parts) {
     if (!part) continue;
     const idx = part.indexOf("=");
     if (idx < 0) continue;
-    const key = decodeURIComponent(part.slice(0, idx).trim());
+    const key = part.slice(0, idx).trim();
     if (key !== name) continue;
-    return decodeURIComponent(part.slice(idx + 1).trim());
+    return part.slice(idx + 1).trim();
   }
   return "";
 }
