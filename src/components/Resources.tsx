@@ -42,10 +42,6 @@ export function Resources() {
           <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
             공식 안내 바로가기
           </h2>
-          <p className="mt-4 text-ink-300">
-            법령·행정 해석은 수시로 바뀔 수 있습니다. 최종 확인은 공식 기관·유권해석을
-            따르세요.
-          </p>
         </div>
         <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {links.map((l) => (
