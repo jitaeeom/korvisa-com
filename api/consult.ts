@@ -58,6 +58,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (bodyText.length === 0) {
     return json(res, 400, { error: "내용을 입력해 주세요." });
   }
+  if (email.length === 0) {
+    return json(res, 400, { error: "이메일을 입력해 주세요." });
+  }
   if (
     name.length > MAX_NAME ||
     email.length > MAX_EMAIL ||
@@ -67,7 +70,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   ) {
     return json(res, 400, { error: "입력 길이가 너무 깁니다." });
   }
-  if (email.length > 0 && !EMAIL_RE.test(email)) {
+  if (!EMAIL_RE.test(email)) {
     return json(res, 400, { error: "이메일 형식이 올바르지 않습니다." });
   }
 

@@ -11,7 +11,7 @@ export function ConsultRequestPage() {
   const [sendState, setSendState] = useState<"idle" | "sending" | "ok" | "err">("idle");
   const [sendError, setSendError] = useState("");
 
-  const canSend = consultBody.trim().length > 0;
+  const canSend = consultBody.trim().length > 0 && consultEmail.trim().length > 0;
 
   return (
     <main className="bg-ink-950">
@@ -83,10 +83,11 @@ export function ConsultRequestPage() {
 
               <div>
                 <label className="text-xs font-semibold uppercase tracking-wider text-ink-500">
-                  이메일(선택)
+                  이메일(필수)
                 </label>
                 <input
                   type="email"
+                  required
                   value={consultEmail}
                   onChange={(e) => setConsultEmail(e.target.value)}
                   className="mt-2 w-full rounded-xl border border-white/10 bg-ink-950/40 px-4 py-2.5 text-sm text-white outline-none placeholder:text-ink-500 focus:border-sky-400/40"
