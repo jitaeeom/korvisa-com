@@ -137,19 +137,20 @@ export function Hero() {
 
         <dl className="mt-14 grid grid-cols-1 gap-3 sm:mt-16 sm:grid-cols-3 sm:gap-4 lg:mt-20">
           {[
-            ["비자 유형", "요약 + 준비 서류 + FAQ"],
-            ["기업 HR", "단계별 체크리스트"],
-            ["공식 링크", "Hi Korea · 비자포털"],
-          ].map(([k, v]) => (
-            <div
+            ["비자 유형", "요약 + 준비 서류 + FAQ", "#visas"],
+            ["기업 HR", "단계별 체크리스트", "#hr"],
+            ["공식 링크", "Hi Korea · 비자포털", "#resources"],
+          ].map(([k, v, href]) => (
+            <a
               key={k}
+              href={href}
               className="rounded-2xl border border-white/15 bg-black/35 px-4 py-4 text-left shadow-sm backdrop-blur-md sm:text-center"
             >
               <dt className="text-[11px] font-semibold uppercase tracking-wider text-sky-200/95">
                 {k}
               </dt>
               <dd className="mt-1.5 text-sm font-bold leading-snug text-white">{v}</dd>
-            </div>
+            </a>
           ))}
         </dl>
 
@@ -159,7 +160,7 @@ export function Hero() {
             <p className="mt-2 text-sm leading-relaxed text-ink-100">
               비자 심사는 사안마다 다릅니다. 최종 판단은 항상{" "}
               <strong className="font-semibold text-white">공식 민원 안내</strong>와{" "}
-              <strong className="font-semibold text-white">유권해석</strong>을 따르세요.
+              <strong className="font-semibold text-white">전문가의 의견</strong>을 참고하세요.
             </p>
           </div>
           <div className="rounded-2xl border border-white/15 bg-black/35 p-5 text-center backdrop-blur-md">
