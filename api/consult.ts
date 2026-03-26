@@ -2,8 +2,11 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { Resend } from "resend";
 
 const MAX_NAME = 120;
+const MAX_EMAIL = 320;
+const MAX_PHONE = 50;
 const MAX_TITLE = 200;
 const MAX_BODY = 20000;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function json(res: VercelResponse, status: number, body: Record<string, unknown>) {
   res.status(status).setHeader("Content-Type", "application/json; charset=utf-8");
@@ -47,19 +50,32 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const p = payload as Record<string, unknown>;
   const name = typeof p.name === "string" ? p.name.trim() : "";
+  const email = typeof p.email === "string" ? p.email.trim() : "";
+  const phone = typeof p.phone === "string" ? p.phone.trim() : "";
   const title = typeof p.title === "string" ? p.title.trim() : "";
   const bodyText = typeof p.body === "string" ? p.body.trim() : "";
 
   if (bodyText.length === 0) {
     return json(res, 400, { error: "내용을 입력해 주세요." });
   }
-  if (name.length > MAX_NAME || title.length > MAX_TITLE || bodyText.length > MAX_BODY) {
+  if (
+    name.length > MAX_NAME ||
+    email.length > MAX_EMAIL ||
+    phone.length > MAX_PHONE ||
+    title.length > MAX_TITLE ||
+    bodyText.length > MAX_BODY
+  ) {
     return json(res, 400, { error: "입력 길이가 너무 깁니다." });
+  }
+  if (email.length > 0 && !EMAIL_RE.test(email)) {
+    return json(res, 400, { error: "이메일 형식이 올바르지 않습니다." });
   }
 
   const subject = title.length > 0 ? `[상담 문의] ${title}` : "[상담 문의] (제목 없음)";
   const text =
     `이름(작성자): ${name || "(없음)"}\n` +
+    `이메일: ${email || "(없음)"}\n` +
+    `연락처: ${phone || "(없음)"}\n` +
     `제목: ${title || "(없음)"}\n\n` +
     `${bodyText}\n`;
 
@@ -67,6 +83,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const { data, error } = await resend.emails.send({
     from,
     to: [to],
+    replyTo: email || undefined,
     subject,
     text,
   });

@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 export function ConsultRequestPage() {
   const navigate = useNavigate();
   const [consultName, setConsultName] = useState("");
+  const [consultEmail, setConsultEmail] = useState("");
+  const [consultPhone, setConsultPhone] = useState("");
   const [consultTitle, setConsultTitle] = useState("");
   const [consultBody, setConsultBody] = useState("");
   const [sendState, setSendState] = useState<"idle" | "sending" | "ok" | "err">("idle");
@@ -49,6 +51,8 @@ export function ConsultRequestPage() {
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
                       name: consultName.trim(),
+                      email: consultEmail.trim(),
+                      phone: consultPhone.trim(),
                       title: consultTitle.trim(),
                       body: consultBody.trim(),
                     }),
@@ -74,6 +78,32 @@ export function ConsultRequestPage() {
                   onChange={(e) => setConsultName(e.target.value)}
                   className="mt-2 w-full rounded-xl border border-white/10 bg-ink-950/40 px-4 py-2.5 text-sm text-white outline-none placeholder:text-ink-500 focus:border-sky-400/40"
                   placeholder="예: 홍길동"
+                />
+              </div>
+
+              <div>
+                <label className="text-xs font-semibold uppercase tracking-wider text-ink-500">
+                  이메일(선택)
+                </label>
+                <input
+                  type="email"
+                  value={consultEmail}
+                  onChange={(e) => setConsultEmail(e.target.value)}
+                  className="mt-2 w-full rounded-xl border border-white/10 bg-ink-950/40 px-4 py-2.5 text-sm text-white outline-none placeholder:text-ink-500 focus:border-sky-400/40"
+                  placeholder="예: name@example.com"
+                />
+              </div>
+
+              <div>
+                <label className="text-xs font-semibold uppercase tracking-wider text-ink-500">
+                  연락처(선택)
+                </label>
+                <input
+                  type="tel"
+                  value={consultPhone}
+                  onChange={(e) => setConsultPhone(e.target.value)}
+                  className="mt-2 w-full rounded-xl border border-white/10 bg-ink-950/40 px-4 py-2.5 text-sm text-white outline-none placeholder:text-ink-500 focus:border-sky-400/40"
+                  placeholder="예: 010-1234-5678"
                 />
               </div>
 
