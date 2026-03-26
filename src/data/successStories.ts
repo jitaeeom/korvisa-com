@@ -102,5 +102,5 @@ export const SUCCESS_STORIES: SuccessStory[] = [
 ];
 
 export function storyImageSrc(fileName: string) {
-  return `/images/stories/${fileName}?v=5`;
+  return `/images/stories/${fileName}?v=6`;
 }
