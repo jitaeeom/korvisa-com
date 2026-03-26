@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const KAKAO_OPENCHAT_URL = "https://open.kakao.com/o/sR2KYbXb";
+const KAKAO_ICON_URL = "https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg";
+
 export function ConsultRequestPage() {
   const navigate = useNavigate();
   const [consultName, setConsultName] = useState("");
@@ -138,6 +141,16 @@ export function ConsultRequestPage() {
               ) : null}
 
               <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
+                <a
+                  href={KAKAO_OPENCHAT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="카카오톡 오픈채팅 상담 열기"
+                  title="카카오톡 상담"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#FEE500]/40 bg-[#FEE500] p-1.5 transition hover:brightness-95"
+                >
+                  <img src={KAKAO_ICON_URL} alt="" className="h-full w-full rounded-lg object-cover" loading="lazy" decoding="async" />
+                </a>
                 <button
                   type="button"
                   className="rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10"

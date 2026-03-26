@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 
 const CONTACT_IMG =
   "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=900&q=80";
+const KAKAO_OPENCHAT_URL = "https://open.kakao.com/o/sR2KYbXb";
+const KAKAO_ICON_URL = "https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg";
 
 export function Contact() {
   return (
@@ -55,6 +57,16 @@ export function Contact() {
                 className="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3.5 text-sm font-semibold text-ink-950 transition hover:bg-ink-100"
               >
                 010-8781-7192
+              </a>
+              <a
+                href={KAKAO_OPENCHAT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="카카오톡 오픈채팅 상담 열기"
+                title="카카오톡 상담"
+                className="inline-flex h-[52px] w-[52px] items-center justify-center rounded-2xl border border-[#FEE500]/40 bg-[#FEE500] p-1.5 transition hover:brightness-95"
+              >
+                <img src={KAKAO_ICON_URL} alt="" className="h-full w-full rounded-xl object-cover" loading="lazy" decoding="async" />
               </a>
               <Link
                 to="/consult"

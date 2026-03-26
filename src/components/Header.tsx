@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { KorvisaLogo } from "./Logo";
 
+const KAKAO_OPENCHAT_URL = "https://open.kakao.com/o/sR2KYbXb";
+const KAKAO_ICON_URL = "https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg";
+
 const nav = [
   { to: "/#audience", label: "대상별 안내" },
   { to: "/#visas", label: "주요 비자" },
@@ -92,6 +95,16 @@ export function Header() {
           >
             상담 문의
           </Link>
+          <a
+            href={KAKAO_OPENCHAT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="카카오톡 오픈채팅 상담 열기"
+            title="카카오톡 상담"
+            className="hidden h-10 w-10 items-center justify-center rounded-xl border border-[#FEE500]/40 bg-[#FEE500] p-1.5 shadow-soft transition hover:brightness-95 sm:inline-flex"
+          >
+            <img src={KAKAO_ICON_URL} alt="" className="h-full w-full rounded-lg object-cover" loading="lazy" decoding="async" />
+          </a>
           <button
             type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 text-white md:hidden"
@@ -133,6 +146,17 @@ export function Header() {
               >
                 상담 문의
               </Link>
+              <a
+                href={KAKAO_OPENCHAT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="카카오톡 오픈채팅 상담 열기"
+                title="카카오톡 상담"
+                className="mx-auto mt-2 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-[#FEE500]/40 bg-[#FEE500] p-1.5"
+                onClick={() => setMenuOpen(false)}
+              >
+                <img src={KAKAO_ICON_URL} alt="" className="h-full w-full rounded-lg object-cover" loading="lazy" decoding="async" />
+              </a>
             </nav>
           </div>
         </>
