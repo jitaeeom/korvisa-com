@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    { "source": "/visa/e-7", "destination": "/visa/e7", "permanent": true },
+    { "source": "/visa/d-8", "destination": "/visa/d8", "permanent": true },
+    { "source": "/visa/f-2", "destination": "/visa/f2", "permanent": true },
+    { "source": "/visa/f-5", "destination": "/visa/f5", "permanent": true },
+    { "source": "/visa/f-6", "destination": "/visa/f6", "permanent": true }
+  ],
   "rewrites": [
     {
       "source": "/((?!.*\\..*).*)",
