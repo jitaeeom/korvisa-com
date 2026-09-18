@@ -52,6 +52,12 @@ export function HrChecklist() {
               실무에서 자주 놓치는 단계를 묶었습니다. 산업·고용 형태·개인 이력에 따라
               세부는 달라집니다.
             </p>
+            <a
+              href="https://job.korvisa.com/foreign-worker-hiring.html"
+              className="mt-4 inline-block text-sm font-medium text-accent-light hover:underline"
+            >
+              제조업 외국인 근로자 채용·인력 찾기 →
+            </a>
             <figure className="mt-8 overflow-hidden rounded-3xl border border-white/10 shadow-lift">
               <img
                 src={SIDE_IMG}
