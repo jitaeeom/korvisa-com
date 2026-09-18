@@ -7,6 +7,7 @@ export const PRERENDER_PATHS = [
   "/",
   "/visa/e7",
   "/visa/e7-1",
+  "/visa/e7-4",
   "/visa/e9",
   "/visa/f2",
   "/visa/f5",
@@ -88,6 +89,14 @@ export function visaE71PageMeta(): PageMeta {
   );
 }
 
+export function visaE74PageMeta(): PageMeta {
+  return page(
+    "/visa/e7-4",
+    "E-7-4 비자 자격조건·점수·회사추천 | 2026 숙련기능인력 - Korvisa",
+    "2026년 E-7-4 숙련기능인력(K-point E74) 비자의 체류기간, 점수, 소득·한국어 요건, 회사추천, 고용조건과 필요서류를 확인하세요.",
+  );
+}
+
 export function getPageMeta(pathname: string): PageMeta {
   const path = pathname.replace(/\/+$/, "") || "/";
 
@@ -95,6 +104,7 @@ export function getPageMeta(pathname: string): PageMeta {
   if (path === "/housing") return housingPageMeta();
   if (path === "/representative") return representativePageMeta();
   if (path === "/visa/e7-1") return visaE71PageMeta();
+  if (path === "/visa/e7-4") return visaE74PageMeta();
 
   const visaMatch = path.match(/^\/visa\/([^/]+)$/);
   if (visaMatch) {
