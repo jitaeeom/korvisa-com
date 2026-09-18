@@ -937,6 +937,14 @@ F-5는 점수 경쟁이 아니라
               </p>
               <p>
                 <Link
+                  to="/visa/e7-chef"
+                  className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
+                >
+                  외국인 요리사·주방장 E-7-2 초청조건 확인하기 →
+                </Link>
+              </p>
+              <p>
+                <Link
                   to="/visa/e7-4"
                   className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
                 >

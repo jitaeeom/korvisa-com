@@ -195,6 +195,14 @@ export function VisaE7WorkplaceChangePage() {
               </tbody>
             </table>
           </div>
+          <p className="mt-4">
+            <Link
+              to="/visa/e7-chef"
+              className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
+            >
+              E-7 요리사·주방장 초청조건 확인하기 →
+            </Link>
+          </p>
           <p className="mt-4 text-sm leading-relaxed text-ink-400">
             해외영업원이라고 해서 모두 해당하는 것이 아니라, 고시 문언에 따라 해외영업원(2742) 중 해외
             온라인상품판매원을 구분합니다. 최신 법령·고시 및 신청자의 구체적인 활동내용은 신청 시점에 다시

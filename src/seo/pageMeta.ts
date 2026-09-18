@@ -7,6 +7,7 @@ export const PRERENDER_PATHS = [
   "/",
   "/visa/e7",
   "/visa/e7-1",
+  "/visa/e7-chef",
   "/visa/e7-4",
   "/visa/e7-4r",
   "/visa/e7-workplace-change",
@@ -111,6 +112,14 @@ export function visaE74RPageMeta(): PageMeta {
   );
 }
 
+export function visaE7ChefPageMeta(): PageMeta {
+  return page(
+    "/visa/e7-chef",
+    "E-7 요리사 비자 자격조건·경력·식당조건 | 외국인 주방장 초청 - Korvisa",
+    "외국인 요리사·주방장을 E-7-2 비자로 초청할 때 필요한 조리경력과 자격증, 외국음식 전문식당의 면적·납세·내국인 고용요건, 2026년 임금기준과 신청절차를 확인하세요.",
+  );
+}
+
 export function visaE7WorkplaceChangePageMeta(): PageMeta {
   return page(
     "/visa/e7-workplace-change",
@@ -158,6 +167,7 @@ export function getPageMeta(pathname: string): PageMeta {
   if (path === "/housing") return housingPageMeta();
   if (path === "/representative") return representativePageMeta();
   if (path === "/visa/e7-1") return visaE71PageMeta();
+  if (path === "/visa/e7-chef") return visaE7ChefPageMeta();
   if (path === "/visa/e7-4") return visaE74PageMeta();
   if (path === "/visa/e7-4r") return visaE74RPageMeta();
   if (path === "/visa/e7-workplace-change") return visaE7WorkplaceChangePageMeta();
