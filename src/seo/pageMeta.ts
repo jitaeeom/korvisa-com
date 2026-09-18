@@ -11,6 +11,7 @@ export const PRERENDER_PATHS = [
   "/visa/e7-4r",
   "/visa/e7-workplace-change",
   "/visa/d10-to-e7",
+  "/visa/d10",
   "/visa/e9",
   "/visa/f2",
   "/visa/f5",
@@ -124,6 +125,14 @@ export function visaD10ToE7PageMeta(): PageMeta {
   );
 }
 
+export function visaD10PageMeta(): PageMeta {
+  return page(
+    "/visa/d10",
+    "D-10 구직비자 자격조건·기간·인턴·연장 | 2026 D10 비자 - Korvisa",
+    "D-10 구직비자의 신청대상, 자격조건, 국내대학 졸업자 구직기간, 인턴활동, 연장, 필요서류와 취업 후 E-7 변경까지 2026년 기준으로 확인하세요.",
+  );
+}
+
 export function getPageMeta(pathname: string): PageMeta {
   const path = pathname.replace(/\/+$/, "") || "/";
 
@@ -135,6 +144,7 @@ export function getPageMeta(pathname: string): PageMeta {
   if (path === "/visa/e7-4r") return visaE74RPageMeta();
   if (path === "/visa/e7-workplace-change") return visaE7WorkplaceChangePageMeta();
   if (path === "/visa/d10-to-e7") return visaD10ToE7PageMeta();
+  if (path === "/visa/d10") return visaD10PageMeta();
 
   const visaMatch = path.match(/^\/visa\/([^/]+)$/);
   if (visaMatch) {

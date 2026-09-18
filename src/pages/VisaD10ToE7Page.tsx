@@ -106,6 +106,12 @@ export function VisaD10ToE7Page() {
             >
               E-7 전문인력 자격조건 자세히 보기 →
             </Link>
+            <Link
+              to="/visa/d10"
+              className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
+            >
+              D-10 구직비자 자격·기간·인턴 자세히 보기 →
+            </Link>
           </div>
         </div>
       </header>

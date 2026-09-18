@@ -12,6 +12,7 @@
     { "source": "/visa/e-7-4r", "destination": "/visa/e7-4r", "permanent": true },
     { "source": "/visa/e-7-workplace-change", "destination": "/visa/e7-workplace-change", "permanent": true },
     { "source": "/visa/d-10-to-e-7", "destination": "/visa/d10-to-e7", "permanent": true },
+    { "source": "/visa/d-10", "destination": "/visa/d10", "permanent": true },
     { "source": "/visa/d-8", "destination": "/visa/d8", "permanent": true },
     { "source": "/visa/f-2", "destination": "/visa/f2", "permanent": true },
     { "source": "/visa/f-5", "destination": "/visa/f5", "permanent": true },
@@ -20,7 +21,8 @@
     { "source": "/page/page4", "destination": "/visa/d8", "permanent": true },
     { "source": "/page/page11", "destination": "/visa/e7-workplace-change", "permanent": true },
     { "source": "/page/page18", "destination": "/visa/d8", "permanent": true },
-    { "source": "/page/page22", "destination": "/visa/f6", "permanent": true }
+    { "source": "/page/page22", "destination": "/visa/f6", "permanent": true },
+    { "source": "/page/page5", "destination": "/visa/d10", "permanent": true }
   ],
   "rewrites": [
     { "source": "/visa/e7", "destination": "/visa/e7/index.html" },
@@ -29,6 +31,7 @@
     { "source": "/visa/e7-4r", "destination": "/visa/e7-4r/index.html" },
     { "source": "/visa/e7-workplace-change", "destination": "/visa/e7-workplace-change/index.html" },
     { "source": "/visa/d10-to-e7", "destination": "/visa/d10-to-e7/index.html" },
+    { "source": "/visa/d10", "destination": "/visa/d10/index.html" },
     { "source": "/visa/e9", "destination": "/visa/e9/index.html" },
     { "source": "/visa/f2", "destination": "/visa/f2/index.html" },
     { "source": "/visa/f5", "destination": "/visa/f5/index.html" },
