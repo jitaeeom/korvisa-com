@@ -97,7 +97,7 @@ export function RepresentativePage() {
                   <li>고려대 경영학과, KAIST 석사 졸업</li>
                   <li>일반행정사 겸 번역행정사</li>
                   <li>법무부 지정 출입국 행정사</li>
-                  <li>공인중개사</li>
+                  <li>공인중개사, 직업상담사</li>
                 </ul>
               </div>
               <div>
