@@ -1,5 +1,11 @@
 {
   "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.korvisa.com" }],
+      "destination": "https://korvisa.com/$1",
+      "permanent": true
+    },
     { "source": "/visa/e-7", "destination": "/visa/e7", "permanent": true },
     { "source": "/visa/d-8", "destination": "/visa/d8", "permanent": true },
     { "source": "/visa/f-2", "destination": "/visa/f2", "permanent": true },
