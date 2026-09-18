@@ -95,6 +95,14 @@ export function VisaE71Page() {
               E-7 비자 전체 안내 보기
             </Link>
           </p>
+          <p className="mt-2">
+            <Link
+              to="/visa/e7-workplace-change"
+              className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
+            >
+              E-7 근무처변경·이직 절차 확인하기 →
+            </Link>
+          </p>
         </div>
       </header>
 

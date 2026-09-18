@@ -931,6 +931,14 @@ F-5는 점수 경쟁이 아니라
                   E-7-4R 지역특화 숙련기능인력 자세히 보기 →
                 </Link>
               </p>
+              <p>
+                <Link
+                  to="/visa/e7-workplace-change"
+                  className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
+                >
+                  E-7 이직·근무처변경 신고/허가 자세히 보기 →
+                </Link>
+              </p>
             </div>
           ) : null}
         </div>

@@ -9,6 +9,7 @@ export const PRERENDER_PATHS = [
   "/visa/e7-1",
   "/visa/e7-4",
   "/visa/e7-4r",
+  "/visa/e7-workplace-change",
   "/visa/e9",
   "/visa/f2",
   "/visa/f5",
@@ -106,6 +107,14 @@ export function visaE74RPageMeta(): PageMeta {
   );
 }
 
+export function visaE7WorkplaceChangePageMeta(): PageMeta {
+  return page(
+    "/visa/e7-workplace-change",
+    "E-7 근무처변경·이직 신고/허가·필요서류 | E7 회사변경 - Korvisa",
+    "E-7 비자로 이직할 때 근무처변경이 사전허가인지 사후신고인지 확인하세요. 15일 신고기한, 적용제외 직종, 새 회사 요건, 퇴직사유, 이적동의와 필요서류를 안내합니다.",
+  );
+}
+
 export function getPageMeta(pathname: string): PageMeta {
   const path = pathname.replace(/\/+$/, "") || "/";
 
@@ -115,6 +124,7 @@ export function getPageMeta(pathname: string): PageMeta {
   if (path === "/visa/e7-1") return visaE71PageMeta();
   if (path === "/visa/e7-4") return visaE74PageMeta();
   if (path === "/visa/e7-4r") return visaE74RPageMeta();
+  if (path === "/visa/e7-workplace-change") return visaE7WorkplaceChangePageMeta();
 
   const visaMatch = path.match(/^\/visa\/([^/]+)$/);
   if (visaMatch) {
