@@ -8,6 +8,7 @@ const KAKAO_ICON_URL = "https://upload.wikimedia.org/wikipedia/commons/e/e3/Kaka
 const nav = [
   { to: "/#audience", label: "대상별 안내" },
   { to: "/#visas", label: "주요 비자" },
+  { to: "https://job.korvisa.com/", label: "외국인 인력" },
   { to: "/#stories", label: "성공 사례" },
   { to: "/#hr", label: "기업 체크리스트" },
   { to: "/#resources", label: "공식 링크" },
@@ -77,15 +78,25 @@ export function Header() {
           <KorvisaLogo size="md" className="min-w-0" />
         </Link>
         <nav className="hidden items-center gap-0.5 md:flex" aria-label="주요 섹션">
-          {nav.map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              className="rounded-xl px-3.5 py-2 text-sm font-medium text-ink-200 transition hover:bg-white/10 hover:text-white"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {nav.map((item) =>
+            item.to.startsWith("http") ? (
+              <a
+                key={item.to}
+                href={item.to}
+                className="rounded-xl px-3.5 py-2 text-sm font-medium text-ink-200 transition hover:bg-white/10 hover:text-white"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.to}
+                to={item.to}
+                className="rounded-xl px-3.5 py-2 text-sm font-medium text-ink-200 transition hover:bg-white/10 hover:text-white"
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
         </nav>
         <div className="flex items-center gap-2">
           <Link
@@ -130,15 +141,25 @@ export function Header() {
             className="absolute left-0 right-0 top-full z-50 border-b border-white/10 bg-ink-950/95 p-4 shadow-lift backdrop-blur-xl md:hidden"
           >
             <nav className="flex flex-col gap-1" aria-label="모바일 메뉴">
-              {nav.map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  className="rounded-xl px-4 py-3.5 text-base font-medium text-white/90 hover:bg-white/10"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {nav.map((item) =>
+                item.to.startsWith("http") ? (
+                  <a
+                    key={item.to}
+                    href={item.to}
+                    className="rounded-xl px-4 py-3.5 text-base font-medium text-white/90 hover:bg-white/10"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    className="rounded-xl px-4 py-3.5 text-base font-medium text-white/90 hover:bg-white/10"
+                  >
+                    {item.label}
+                  </Link>
+                ),
+              )}
               <Link
                 to="/consult"
                 className="mt-2 rounded-xl bg-accent px-4 py-3.5 text-center text-base font-semibold text-white"
