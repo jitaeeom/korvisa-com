@@ -905,6 +905,16 @@ F-5는 점수 경쟁이 아니라
             {visa.title}
           </h1>
           <p className="mt-4 max-w-3xl text-lg text-ink-300">{visa.subtitle}</p>
+          {visa.slug === "f2" ? (
+            <p className="mt-4">
+              <Link
+                to="/visa/f2-7"
+                className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
+              >
+                F-2-7 점수제 우수인재 자격조건 자세히 보기 →
+              </Link>
+            </p>
+          ) : null}
           {visa.slug === "e7" ? (
             <div className="mt-4 space-y-2">
               <p>

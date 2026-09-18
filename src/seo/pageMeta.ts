@@ -14,6 +14,7 @@ export const PRERENDER_PATHS = [
   "/visa/d10",
   "/visa/e9",
   "/visa/f2",
+  "/visa/f2-7",
   "/visa/f5",
   "/visa/d8",
   "/visa/f6",
@@ -133,6 +134,14 @@ export function visaD10PageMeta(): PageMeta {
   );
 }
 
+export function visaF27PageMeta(): PageMeta {
+  return page(
+    "/visa/f2-7",
+    "F-2-7 비자 자격조건·점수·소득 | 2026 점수제 우수인재 - Korvisa",
+    "F-2-7 점수제 우수인재 거주비자의 신청대상, 연령·학력·소득·한국어 평가, 가점·감점, E-7에서 F-2-7 변경과 영주권까지 2026년 기준으로 확인하세요.",
+  );
+}
+
 export function getPageMeta(pathname: string): PageMeta {
   const path = pathname.replace(/\/+$/, "") || "/";
 
@@ -145,6 +154,7 @@ export function getPageMeta(pathname: string): PageMeta {
   if (path === "/visa/e7-workplace-change") return visaE7WorkplaceChangePageMeta();
   if (path === "/visa/d10-to-e7") return visaD10ToE7PageMeta();
   if (path === "/visa/d10") return visaD10PageMeta();
+  if (path === "/visa/f2-7") return visaF27PageMeta();
 
   const visaMatch = path.match(/^\/visa\/([^/]+)$/);
   if (visaMatch) {

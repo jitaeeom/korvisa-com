@@ -111,6 +111,14 @@ export function VisaE71Page() {
               D-10에서 E-7-1 변경조건 확인하기 →
             </Link>
           </p>
+          <p className="mt-2">
+            <Link
+              to="/visa/f2-7"
+              className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
+            >
+              E-7에서 F-2-7 변경조건 확인하기 →
+            </Link>
+          </p>
         </div>
       </header>
 
