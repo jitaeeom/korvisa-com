@@ -937,6 +937,14 @@ F-5는 점수 경쟁이 아니라
               </p>
               <p>
                 <Link
+                  to="/visa/e7-overseas-sales"
+                  className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
+                >
+                  E-7 해외영업원 채용조건 자세히 보기 →
+                </Link>
+              </p>
+              <p>
+                <Link
                   to="/visa/e7-chef"
                   className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
                 >

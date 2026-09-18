@@ -97,6 +97,14 @@ export function VisaE71Page() {
           </p>
           <p className="mt-2">
             <Link
+              to="/visa/e7-overseas-sales"
+              className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
+            >
+              외국인 해외영업원 E-7-1 채용조건 확인하기 →
+            </Link>
+          </p>
+          <p className="mt-2">
+            <Link
               to="/visa/e7-workplace-change"
               className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
             >

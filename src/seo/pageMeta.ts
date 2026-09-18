@@ -7,6 +7,7 @@ export const PRERENDER_PATHS = [
   "/",
   "/visa/e7",
   "/visa/e7-1",
+  "/visa/e7-overseas-sales",
   "/visa/e7-chef",
   "/visa/e7-4",
   "/visa/e7-4r",
@@ -96,6 +97,14 @@ export function visaE71PageMeta(): PageMeta {
   );
 }
 
+export function visaE7OverseasSalesPageMeta(): PageMeta {
+  return page(
+    "/visa/e7-overseas-sales",
+    "E-7 해외영업원 비자 자격조건·회사조건 | 외국인 해외영업 채용 - Korvisa",
+    "외국인 해외영업원을 E-7-1 비자로 채용할 때 필요한 학력·경력, 실제 해외영업 직무, 회사의 내국인 고용·수출실적, 2026년 임금기준과 신청서류를 확인하세요.",
+  );
+}
+
 export function visaE74PageMeta(): PageMeta {
   return page(
     "/visa/e7-4",
@@ -167,6 +176,7 @@ export function getPageMeta(pathname: string): PageMeta {
   if (path === "/housing") return housingPageMeta();
   if (path === "/representative") return representativePageMeta();
   if (path === "/visa/e7-1") return visaE71PageMeta();
+  if (path === "/visa/e7-overseas-sales") return visaE7OverseasSalesPageMeta();
   if (path === "/visa/e7-chef") return visaE7ChefPageMeta();
   if (path === "/visa/e7-4") return visaE74PageMeta();
   if (path === "/visa/e7-4r") return visaE74RPageMeta();

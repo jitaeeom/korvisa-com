@@ -12,6 +12,7 @@
     { "source": "/visa/e-7-4r", "destination": "/visa/e7-4r", "permanent": true },
     { "source": "/visa/e-7-workplace-change", "destination": "/visa/e7-workplace-change", "permanent": true },
     { "source": "/visa/e7-cook", "destination": "/visa/e7-chef", "permanent": true },
+    { "source": "/visa/e7-overseas-marketing", "destination": "/visa/e7-overseas-sales", "permanent": true },
     { "source": "/visa/d-10-to-e-7", "destination": "/visa/d10-to-e7", "permanent": true },
     { "source": "/visa/d-10", "destination": "/visa/d10", "permanent": true },
     { "source": "/visa/d-8", "destination": "/visa/d8", "permanent": true },
@@ -30,6 +31,7 @@
   "rewrites": [
     { "source": "/visa/e7", "destination": "/visa/e7/index.html" },
     { "source": "/visa/e7-1", "destination": "/visa/e7-1/index.html" },
+    { "source": "/visa/e7-overseas-sales", "destination": "/visa/e7-overseas-sales/index.html" },
     { "source": "/visa/e7-chef", "destination": "/visa/e7-chef/index.html" },
     { "source": "/visa/e7-4", "destination": "/visa/e7-4/index.html" },
     { "source": "/visa/e7-4r", "destination": "/visa/e7-4r/index.html" },
