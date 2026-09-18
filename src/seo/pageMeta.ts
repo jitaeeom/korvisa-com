@@ -15,6 +15,7 @@ export const PRERENDER_PATHS = [
   "/visa/e9",
   "/visa/f2",
   "/visa/f2-7",
+  "/visa/f2-7-to-f5",
   "/visa/f5",
   "/visa/d8",
   "/visa/f6",
@@ -142,6 +143,14 @@ export function visaF27PageMeta(): PageMeta {
   );
 }
 
+export function visaF27ToF5PageMeta(): PageMeta {
+  return page(
+    "/visa/f2-7-to-f5",
+    "F-2-7에서 F-5 영주권 변경 | 3년 체류·소득·한국어 조건 - Korvisa",
+    "F-2-7 점수제 거주비자에서 F-5 영주권으로 변경할 때 필요한 3년 체류, 생계유지능력, 품행, 기본소양과 신청서류를 확인하세요. 3년 체류만으로 자동 영주권이 되는 것은 아닙니다.",
+  );
+}
+
 export function getPageMeta(pathname: string): PageMeta {
   const path = pathname.replace(/\/+$/, "") || "/";
 
@@ -155,6 +164,7 @@ export function getPageMeta(pathname: string): PageMeta {
   if (path === "/visa/d10-to-e7") return visaD10ToE7PageMeta();
   if (path === "/visa/d10") return visaD10PageMeta();
   if (path === "/visa/f2-7") return visaF27PageMeta();
+  if (path === "/visa/f2-7-to-f5") return visaF27ToF5PageMeta();
 
   const visaMatch = path.match(/^\/visa\/([^/]+)$/);
   if (visaMatch) {

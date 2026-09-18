@@ -316,6 +316,14 @@ export function VisaF27Page() {
               F-5 영주권 전체 안내 →
             </Link>
           </p>
+          <p className="mt-2">
+            <Link
+              to="/visa/f2-7-to-f5"
+              className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
+            >
+              F-2-7에서 F-5 영주권 변경조건 자세히 보기 →
+            </Link>
+          </p>
         </section>
 
         <section>

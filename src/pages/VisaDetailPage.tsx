@@ -905,6 +905,16 @@ F-5는 점수 경쟁이 아니라
             {visa.title}
           </h1>
           <p className="mt-4 max-w-3xl text-lg text-ink-300">{visa.subtitle}</p>
+          {visa.slug === "f5" ? (
+            <p className="mt-4">
+              <Link
+                to="/visa/f2-7-to-f5"
+                className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
+              >
+                F-2-7 점수제 거주자격에서 영주권 변경하기 →
+              </Link>
+            </p>
+          ) : null}
           {visa.slug === "f2" ? (
             <p className="mt-4">
               <Link
