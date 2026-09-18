@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { JobServiceCta } from "../components/JobServiceCta";
 import {
   E74_APPLICANT_DOCS,
   E74_BASICS_BEFORE_SCORE,
@@ -376,6 +377,11 @@ export function VisaE74Page() {
             ))}
           </ul>
         </section>
+
+        <JobServiceCta
+          heading="E-7-4 취업·채용을 준비하고 있나요?"
+          description="비자요건 확인과 함께 실제 취업·채용 기회도 찾아보세요. 외국인은 구직 정보를 등록하고, 기업은 필요한 외국인 인력 조건을 등록할 수 있습니다."
+        />
 
         <section className="rounded-3xl border border-white/10 bg-ink-900/30 p-6 sm:p-8">
           <h2 className="text-xl font-bold text-white sm:text-2xl">
