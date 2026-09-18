@@ -8,6 +8,7 @@ export const PRERENDER_PATHS = [
   "/visa/e7",
   "/visa/e7-1",
   "/visa/e7-4",
+  "/visa/e7-4r",
   "/visa/e9",
   "/visa/f2",
   "/visa/f5",
@@ -97,6 +98,14 @@ export function visaE74PageMeta(): PageMeta {
   );
 }
 
+export function visaE74RPageMeta(): PageMeta {
+  return page(
+    "/visa/e7-4r",
+    "E-7-4R 비자 자격조건·대상지역·회사요건 | 2026 지역특화 숙련기능인력 - Korvisa",
+    "2026년 E-7-4R 지역특화형 숙련기능인력 비자의 체류경력, 대상지역, 회사 근무요건, 지자체 추천, 소득·한국어 요건과 신청절차를 확인하세요.",
+  );
+}
+
 export function getPageMeta(pathname: string): PageMeta {
   const path = pathname.replace(/\/+$/, "") || "/";
 
@@ -105,6 +114,7 @@ export function getPageMeta(pathname: string): PageMeta {
   if (path === "/representative") return representativePageMeta();
   if (path === "/visa/e7-1") return visaE71PageMeta();
   if (path === "/visa/e7-4") return visaE74PageMeta();
+  if (path === "/visa/e7-4r") return visaE74RPageMeta();
 
   const visaMatch = path.match(/^\/visa\/([^/]+)$/);
   if (visaMatch) {

@@ -923,6 +923,14 @@ F-5는 점수 경쟁이 아니라
                   E-7-4 숙련기능인력 자격조건 자세히 보기 →
                 </Link>
               </p>
+              <p>
+                <Link
+                  to="/visa/e7-4r"
+                  className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
+                >
+                  E-7-4R 지역특화 숙련기능인력 자세히 보기 →
+                </Link>
+              </p>
             </div>
           ) : null}
         </div>

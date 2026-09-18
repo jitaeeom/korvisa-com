@@ -328,6 +328,14 @@ export function VisaE74Page() {
             일반 E-7-4와 별도로 지역특화형 숙련기능인력 E-7-4R 제도가 운영되고 있습니다. E-7-4R은 일반
             E-7-4와 체류경력, 지역요건, 추천 및 취업·거주 조건 등이 다르므로 별도로 검토해야 합니다.
           </p>
+          <p className="mt-4">
+            <Link
+              to="/visa/e7-4r"
+              className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
+            >
+              E-7-4R 지역특화형 숙련기능인력 자세히 보기 →
+            </Link>
+          </p>
         </aside>
 
         <section>
