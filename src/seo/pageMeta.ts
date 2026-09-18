@@ -10,6 +10,7 @@ export const PRERENDER_PATHS = [
   "/visa/e7-4",
   "/visa/e7-4r",
   "/visa/e7-workplace-change",
+  "/visa/d10-to-e7",
   "/visa/e9",
   "/visa/f2",
   "/visa/f5",
@@ -115,6 +116,14 @@ export function visaE7WorkplaceChangePageMeta(): PageMeta {
   );
 }
 
+export function visaD10ToE7PageMeta(): PageMeta {
+  return page(
+    "/visa/d10-to-e7",
+    "D-10에서 E-7 비자 변경 | 취업 후 자격조건·회사조건·서류 - Korvisa",
+    "D-10 구직비자에서 E-7 취업비자로 변경할 때 필요한 학력·경력, 국내대학 졸업자 특례, E-7 직종, 회사조건, 2026년 임금기준과 신청절차를 확인하세요.",
+  );
+}
+
 export function getPageMeta(pathname: string): PageMeta {
   const path = pathname.replace(/\/+$/, "") || "/";
 
@@ -125,6 +134,7 @@ export function getPageMeta(pathname: string): PageMeta {
   if (path === "/visa/e7-4") return visaE74PageMeta();
   if (path === "/visa/e7-4r") return visaE74RPageMeta();
   if (path === "/visa/e7-workplace-change") return visaE7WorkplaceChangePageMeta();
+  if (path === "/visa/d10-to-e7") return visaD10ToE7PageMeta();
 
   const visaMatch = path.match(/^\/visa\/([^/]+)$/);
   if (visaMatch) {

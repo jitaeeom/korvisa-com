@@ -939,6 +939,14 @@ F-5는 점수 경쟁이 아니라
                   E-7 이직·근무처변경 신고/허가 자세히 보기 →
                 </Link>
               </p>
+              <p>
+                <Link
+                  to="/visa/d10-to-e7"
+                  className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
+                >
+                  D-10 구직비자에서 E-7 취업비자 변경하기 →
+                </Link>
+              </p>
             </div>
           ) : null}
         </div>
