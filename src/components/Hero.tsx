@@ -140,18 +140,38 @@ export function Hero() {
             ["비자 유형", "요약 + 준비 서류 + FAQ", "#visas"],
             ["기업 HR", "단계별 체크리스트", "#hr"],
             ["공식 링크", "Hi Korea · 비자포털", "#resources"],
-          ].map(([k, v, href]) => (
-            <a
-              key={k}
-              href={href}
-              className="rounded-2xl border border-white/15 bg-black/35 px-4 py-4 text-left shadow-sm backdrop-blur-md sm:text-center"
-            >
-              <dt className="text-[11px] font-semibold uppercase tracking-wider text-sky-200/95">
-                {k}
-              </dt>
-              <dd className="mt-1.5 text-sm font-bold leading-snug text-white">{v}</dd>
-            </a>
-          ))}
+          ].map(([k, v, href]) =>
+            href === "#hr" ? (
+              <div
+                key={k}
+                className="rounded-2xl border border-white/15 bg-black/35 px-4 py-4 text-left shadow-sm backdrop-blur-md sm:text-center"
+              >
+                <a href={href} className="block">
+                  <dt className="text-[11px] font-semibold uppercase tracking-wider text-sky-200/95">
+                    {k}
+                  </dt>
+                  <dd className="mt-1.5 text-sm font-bold leading-snug text-white">{v}</dd>
+                </a>
+                <a
+                  href="https://job.korvisa.com/request.html"
+                  className="mt-2 inline-block text-xs font-medium text-accent-light hover:underline"
+                >
+                  외국인 인력 요청 →
+                </a>
+              </div>
+            ) : (
+              <a
+                key={k}
+                href={href}
+                className="rounded-2xl border border-white/15 bg-black/35 px-4 py-4 text-left shadow-sm backdrop-blur-md sm:text-center"
+              >
+                <dt className="text-[11px] font-semibold uppercase tracking-wider text-sky-200/95">
+                  {k}
+                </dt>
+                <dd className="mt-1.5 text-sm font-bold leading-snug text-white">{v}</dd>
+              </a>
+            ),
+          )}
         </dl>
 
         <div className="mt-8 grid gap-4 border-t border-white/10 pt-8 sm:grid-cols-2 lg:grid-cols-3">
