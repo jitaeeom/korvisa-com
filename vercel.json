@@ -7,6 +7,7 @@
       "permanent": true
     },
     { "source": "/visa/e-7", "destination": "/visa/e7", "permanent": true },
+    { "source": "/visa/e-7-1", "destination": "/visa/e7-1", "permanent": true },
     { "source": "/visa/d-8", "destination": "/visa/d8", "permanent": true },
     { "source": "/visa/f-2", "destination": "/visa/f2", "permanent": true },
     { "source": "/visa/f-5", "destination": "/visa/f5", "permanent": true },
@@ -14,6 +15,7 @@
   ],
   "rewrites": [
     { "source": "/visa/e7", "destination": "/visa/e7/index.html" },
+    { "source": "/visa/e7-1", "destination": "/visa/e7-1/index.html" },
     { "source": "/visa/e9", "destination": "/visa/e9/index.html" },
     { "source": "/visa/f2", "destination": "/visa/f2/index.html" },
     { "source": "/visa/f5", "destination": "/visa/f5/index.html" },
