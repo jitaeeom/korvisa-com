@@ -1,43 +1,7 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { HOUSING_FAQ } from "../data/housingFaq";
 
-function upsertMetaContent(opts: { name?: string; property?: string; content: string }) {
-  const { name, property, content } = opts;
-  const selector = name ? `meta[name="${name}"]` : `meta[property="${property}"]`;
-  let el = document.head.querySelector(selector) as HTMLMetaElement | null;
-  if (!el) {
-    el = document.createElement("meta");
-    if (name) el.setAttribute("name", name);
-    if (property) el.setAttribute("property", property);
-    document.head.appendChild(el);
-  }
-  el.setAttribute("content", content);
-}
-
-function upsertCanonical(href: string) {
-  let el = document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-  if (!el) {
-    el = document.createElement("link");
-    el.setAttribute("rel", "canonical");
-    document.head.appendChild(el);
-  }
-  el.setAttribute("href", href);
-}
-
 export function HousingPage() {
-  useEffect(() => {
-    const title = "외국인 주거·임대차 상담 안내 | Korvisa.com";
-    const description =
-      "외국인 전·월세, 임대차 계약 체크포인트, 비자·체류 일정과 연계한 주거 상담 정보를 한 번에 확인하세요.";
-    document.title = title;
-    upsertMetaContent({ name: "description", content: description });
-    upsertMetaContent({ property: "og:title", content: title });
-    upsertMetaContent({ property: "og:description", content: description });
-    upsertMetaContent({ property: "og:type", content: "website" });
-    const origin = typeof window !== "undefined" ? window.location.origin : "";
-    if (origin) upsertCanonical(`${origin}/housing`);
-  }, []);
   const faqJsonLd = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "FAQPage",

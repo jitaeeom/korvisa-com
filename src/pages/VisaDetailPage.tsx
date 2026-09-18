@@ -2,29 +2,6 @@ import { useEffect } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { getVisaBySlug, VISA_GRID_ORDER } from "../data/visaDetail";
 
-function upsertMetaContent(opts: { name?: string; property?: string; content: string }) {
-  const { name, property, content } = opts;
-  const selector = name ? `meta[name="${name}"]` : `meta[property="${property}"]`;
-  let el = document.head.querySelector(selector) as HTMLMetaElement | null;
-  if (!el) {
-    el = document.createElement("meta");
-    if (name) el.setAttribute("name", name);
-    if (property) el.setAttribute("property", property);
-    document.head.appendChild(el);
-  }
-  el.setAttribute("content", content);
-}
-
-function upsertCanonical(href: string) {
-  let el = document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-  if (!el) {
-    el = document.createElement("link");
-    el.setAttribute("rel", "canonical");
-    document.head.appendChild(el);
-  }
-  el.setAttribute("href", href);
-}
-
 export function VisaDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const visa = slug ? getVisaBySlug(slug) : undefined;
@@ -32,22 +9,6 @@ export function VisaDetailPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [slug]);
-
-  useEffect(() => {
-    if (!visa) return;
-
-    const title = `${visa.code} 비자 ${visa.shortName} 준비서류·절차·FAQ | Korvisa.com`;
-    const description = `${visa.code} 비자 ${visa.shortName} 준비서류, 신청 절차, 체크리스트와 FAQ를 한 페이지에서 확인하세요.`;
-
-    document.title = title;
-    upsertMetaContent({ name: "description", content: description });
-    upsertMetaContent({ property: "og:title", content: title });
-    upsertMetaContent({ property: "og:description", content: description });
-    upsertMetaContent({ property: "og:type", content: "website" });
-
-    const origin = typeof window !== "undefined" ? window.location.origin : "";
-    if (origin) upsertCanonical(`${origin}/visa/${visa.slug}`);
-  }, [visa]);
 
   if (!slug || !visa) {
     return <Navigate to="/" replace />;

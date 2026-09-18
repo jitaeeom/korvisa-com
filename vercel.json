@@ -13,9 +13,20 @@
     { "source": "/visa/f-6", "destination": "/visa/f6", "permanent": true }
   ],
   "rewrites": [
+    { "source": "/visa/e7", "destination": "/visa/e7/index.html" },
+    { "source": "/visa/e9", "destination": "/visa/e9/index.html" },
+    { "source": "/visa/f2", "destination": "/visa/f2/index.html" },
+    { "source": "/visa/f5", "destination": "/visa/f5/index.html" },
+    { "source": "/visa/d8", "destination": "/visa/d8/index.html" },
+    { "source": "/visa/f6", "destination": "/visa/f6/index.html" },
+    { "source": "/housing", "destination": "/housing/index.html" },
+    { "source": "/representative", "destination": "/representative/index.html" },
+    { "source": "/consult", "destination": "/spa-shell.html" },
+    { "source": "/admin", "destination": "/spa-shell.html" },
+    { "source": "/admin/login", "destination": "/spa-shell.html" },
     {
-      "source": "/((?!.*\\..*).*)",
-      "destination": "/index.html"
+      "source": "/((?!.*\\..*).+)",
+      "destination": "/spa-shell.html"
     }
   ]
 }

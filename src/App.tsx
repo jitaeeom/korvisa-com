@@ -9,6 +9,7 @@ import { VisaDetailPage } from "./pages/VisaDetailPage";
 import { HousingPage } from "./pages/HousingPage";
 import { AdminDashboardPage } from "./pages/AdminDashboardPage";
 import { AdminLoginPage } from "./pages/AdminLoginPage";
+import { SeoManager } from "./seo/SeoManager";
 
 export default function App() {
   const { pathname } = useLocation();
@@ -16,6 +17,7 @@ export default function App() {
 
   return (
     <>
+      <SeoManager />
       <AnalyticsTracker />
       {isAdminRoute ? null : <Header />}
       <Routes>
