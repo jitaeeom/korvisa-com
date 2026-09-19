@@ -13,7 +13,7 @@ import {
   D10_STEPS,
 } from "../data/visaD10";
 
-const HERO_IMAGE = "/images/visas/e7.png?v=6";
+const HERO_IMAGE = "/images/d10-hero.png";
 
 export function VisaD10Page() {
   useEffect(() => {
@@ -42,14 +42,13 @@ export function VisaD10Page() {
           <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 shadow-lift">
             <img
               src={HERO_IMAGE}
-              alt="D-10 구직비자 안내"
+              alt="D-10 구직비자 외국인 구직자 한국 기업 취업 면접"
               width={1400}
               height={560}
-              className="aspect-[21/9] w-full object-cover sm:aspect-[2.4/1]"
+              className="aspect-[21/9] w-full object-cover object-center sm:aspect-[2.4/1]"
               loading="eager"
               decoding="async"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/55 to-transparent sm:bg-gradient-to-r sm:from-ink-950 sm:via-ink-950/70 sm:to-transparent" />
           </div>
           <figcaption className="sr-only">D-10 구직비자 안내용 대표 이미지</figcaption>
         </figure>
