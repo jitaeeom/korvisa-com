@@ -79,7 +79,7 @@ export function Header() {
             alt="KORVISA"
             width={2172}
             height={724}
-            className="h-[32px] w-auto max-w-[160px] object-contain object-left sm:h-[34px] sm:max-w-none"
+            className="h-[36px] w-auto max-w-[160px] object-contain object-left sm:h-[40px] sm:max-w-none"
             decoding="async"
           />
         </Link>

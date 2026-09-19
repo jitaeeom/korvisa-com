@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { KorvisaLogo } from "./Logo";
 
 export function Footer() {
   return (
@@ -8,7 +7,14 @@ export function Footer() {
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div>
             <Link to="/" className="inline-flex">
-              <KorvisaLogo size="lg" showTagline />
+              <img
+                src="/images/korvisa-logo-dark-header.png"
+                alt="KORVISA"
+                width={2172}
+                height={724}
+                className="h-12 w-auto object-contain object-left"
+                decoding="async"
+              />
             </Link>
             <p className="mt-3 max-w-md text-xs leading-relaxed text-ink-500">
               서울시 서초구 법원로 1길 11 금구빌딩 지하 101호 · 02-568-7192 · 010-8781-7192
