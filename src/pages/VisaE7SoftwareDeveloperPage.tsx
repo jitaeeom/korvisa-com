@@ -23,7 +23,7 @@ import {
   E7SD_WEAK_CAREER,
 } from "../data/visaE7SoftwareDeveloper";
 
-const HERO_IMAGE = "/images/visas/e7.png?v=6";
+const HERO_IMAGE = "/images/e7-software-developer-hero.png";
 const WAGE_NOTICE_URL = "https://www.moj.go.kr/bbs/immigration/211/601892/artclView.do";
 const MSS_NOTICE_URL =
   "https://www.mss.go.kr/site/smba/ex/bbs/View.do?bcIdx=1065197&cbIdx=310&parentSeq=1065197";
@@ -55,14 +55,13 @@ export function VisaE7SoftwareDeveloperPage() {
           <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 shadow-lift">
             <img
               src={HERO_IMAGE}
-              alt="E-7 응용 소프트웨어 개발자 비자 안내"
+              alt="E-7 소프트웨어개발자 비자 외국인 개발자 한국 IT 기업 취업"
               width={1400}
               height={560}
-              className="aspect-[21/9] w-full object-cover sm:aspect-[2.4/1]"
+              className="aspect-[21/9] w-full object-cover object-center sm:aspect-[2.4/1]"
               loading="eager"
               decoding="async"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/55 to-transparent sm:bg-gradient-to-r sm:from-ink-950 sm:via-ink-950/70 sm:to-transparent" />
           </div>
           <figcaption className="sr-only">외국인 개발자 E-7 비자 안내용 대표 이미지</figcaption>
         </figure>
