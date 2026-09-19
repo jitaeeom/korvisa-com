@@ -54,6 +54,7 @@ export default function App() {
         <Route path="/visa/f-2" element={<Navigate to="/visa/f2" replace />} />
         <Route path="/visa/f27" element={<Navigate to="/visa/f2-7" replace />} />
         <Route path="/visa/f27-to-f5" element={<Navigate to="/visa/f2-7-to-f5" replace />} />
+        <Route path="/visa/f2-f5" element={<Navigate to="/visa/f5" replace />} />
         <Route path="/visa/f-5" element={<Navigate to="/visa/f5" replace />} />
         <Route path="/visa/f-6" element={<Navigate to="/visa/f6" replace />} />
         <Route path="/visa/e7-1" element={<VisaE71Page />} />
