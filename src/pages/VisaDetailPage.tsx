@@ -1162,6 +1162,54 @@ F-5는 점수 경쟁이 아니라
           </div>
         </section>
 
+        {visa.slug === "e9" ? (
+          <section className="rounded-3xl border border-white/10 bg-ink-900/40 p-6 sm:p-8">
+            <h2 className="text-xl font-bold text-white sm:text-2xl">
+              제조업 외국인 인력을 찾거나 취업을 희망하시나요?
+            </h2>
+            <p className="mt-4 max-w-3xl leading-relaxed text-ink-300">
+              Korvisa의 제조 숙련 브릿지에서는 제조업체의 외국인 인력 수요와 한국 취업을 희망하는 외국인의
+              구직정보를 연결하고 있습니다.
+            </p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <article className="rounded-3xl border border-white/10 bg-black/25 p-5">
+                <p className="text-xs font-semibold tracking-wider text-sky-300">기업용</p>
+                <h3 className="mt-2 text-base font-semibold text-white">외국인 인력이 필요한 기업</h3>
+                <p className="mt-3 text-sm leading-relaxed text-ink-300">
+                  제조·생산 현장에 필요한 외국인 인력 수요를 등록해 주세요.
+                </p>
+                <a
+                  href="https://job.korvisa.com/request.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-sky-200 transition hover:border-sky-400/50 hover:bg-white/10"
+                >
+                  외국인 인력 요청하기
+                </a>
+              </article>
+              <article className="rounded-3xl border border-white/10 bg-black/25 p-5">
+                <p className="text-xs font-semibold tracking-wider text-sky-300">외국인용</p>
+                <h3 className="mt-2 text-base font-semibold text-white">한국에서 일자리를 찾는 외국인</h3>
+                <p className="mt-3 text-sm leading-relaxed text-ink-300">
+                  한국 제조업체 취업을 희망한다면 구직정보를 등록할 수 있습니다.
+                </p>
+                <a
+                  href="https://job.korvisa.com/resume.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-sky-200 transition hover:border-sky-400/50 hover:bg-white/10"
+                >
+                  구직정보 등록하기
+                </a>
+              </article>
+            </div>
+            <p className="mt-5 text-xs leading-relaxed text-ink-500">
+              ※ E-9 취업 및 외국인 고용은 고용허가제에 따른 별도의 요건과 절차가 적용됩니다. 인력요청 또는
+              구직정보 등록이 E-9 고용허가, 취업 또는 체류자격을 보장하지 않습니다.
+            </p>
+          </section>
+        ) : null}
+
         <div className="flex flex-wrap gap-4 pb-4">
           <Link
             to="/#visas"
