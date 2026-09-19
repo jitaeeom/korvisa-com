@@ -961,6 +961,14 @@ F-5는 점수 경쟁이 아니라
               </p>
               <p>
                 <Link
+                  to="/visa/e7-mechanical-engineer"
+                  className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
+                >
+                  제조업 기계공학기술자 E-7 확인하기 →
+                </Link>
+              </p>
+              <p>
+                <Link
                   to="/visa/e7-4"
                   className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
                 >

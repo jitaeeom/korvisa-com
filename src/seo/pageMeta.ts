@@ -9,6 +9,7 @@ export const PRERENDER_PATHS = [
   "/visa/e7-1",
   "/visa/e7-overseas-sales",
   "/visa/e7-hospital",
+  "/visa/e7-mechanical-engineer",
   "/visa/e7-chef",
   "/visa/e7-4",
   "/visa/e7-4r",
@@ -130,6 +131,14 @@ export function visaE7HospitalPageMeta(): PageMeta {
   );
 }
 
+export function visaE7MechanicalEngineerPageMeta(): PageMeta {
+  return page(
+    "/visa/e7-mechanical-engineer",
+    "E-7 기계공학기술자 비자 | 제조업 외국인 엔지니어 채용조건 - Korvisa",
+    "제조업체에서 외국인 기계 엔지니어를 E-7-1 기계공학기술자로 채용할 때 확인해야 할 학력·경력, 실제 직무, 회사조건, 임금, MCT·CNC·CAD·기계설계 업무와 단순 생산직의 차이를 확인하세요.",
+  );
+}
+
 export function visaE7ChefPageMeta(): PageMeta {
   return page(
     "/visa/e7-chef",
@@ -187,6 +196,7 @@ export function getPageMeta(pathname: string): PageMeta {
   if (path === "/visa/e7-1") return visaE71PageMeta();
   if (path === "/visa/e7-overseas-sales") return visaE7OverseasSalesPageMeta();
   if (path === "/visa/e7-hospital") return visaE7HospitalPageMeta();
+  if (path === "/visa/e7-mechanical-engineer") return visaE7MechanicalEngineerPageMeta();
   if (path === "/visa/e7-chef") return visaE7ChefPageMeta();
   if (path === "/visa/e7-4") return visaE74PageMeta();
   if (path === "/visa/e7-4r") return visaE74RPageMeta();

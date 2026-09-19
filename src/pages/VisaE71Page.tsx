@@ -207,6 +207,16 @@ export function VisaE71Page() {
               >
                 <h3 className="text-base font-semibold text-white">{field.name}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-ink-300">{field.desc}</p>
+                {field.id === "machinery-metal" ? (
+                  <p className="mt-4">
+                    <Link
+                      to="/visa/e7-mechanical-engineer"
+                      className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
+                    >
+                      기계공학기술자 E-7 자세히 보기 →
+                    </Link>
+                  </p>
+                ) : null}
                 {field.id === "sales-planning-other" ? (
                   <p className="mt-4">
                     <Link

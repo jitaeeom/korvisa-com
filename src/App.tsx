@@ -14,6 +14,7 @@ import { VisaE7WorkplaceChangePage } from "./pages/VisaE7WorkplaceChangePage";
 import { VisaE7ChefPage } from "./pages/VisaE7ChefPage";
 import { VisaE7OverseasSalesPage } from "./pages/VisaE7OverseasSalesPage";
 import { VisaE7HospitalPage } from "./pages/VisaE7HospitalPage";
+import { VisaE7MechanicalEngineerPage } from "./pages/VisaE7MechanicalEngineerPage";
 import { VisaD10ToE7Page } from "./pages/VisaD10ToE7Page";
 import { VisaD10Page } from "./pages/VisaD10Page";
 import { VisaF27Page } from "./pages/VisaF27Page";
@@ -42,6 +43,8 @@ export default function App() {
         <Route path="/visa/e7-overseas-marketing" element={<Navigate to="/visa/e7-overseas-sales" replace />} />
         <Route path="/visa/e7-medical-coordinator" element={<Navigate to="/visa/e7-hospital" replace />} />
         <Route path="/visa/e7-hospital-coordinator" element={<Navigate to="/visa/e7-hospital" replace />} />
+        <Route path="/visa/e7-mechanical-engineer-visa" element={<Navigate to="/visa/e7-mechanical-engineer" replace />} />
+        <Route path="/visa/e7-mechanical" element={<Navigate to="/visa/e7-mechanical-engineer" replace />} />
         <Route path="/visa/d-10-to-e-7" element={<Navigate to="/visa/d10-to-e7" replace />} />
         <Route path="/visa/d-10" element={<Navigate to="/visa/d10" replace />} />
         <Route path="/visa/d-8" element={<Navigate to="/visa/d8" replace />} />
@@ -57,6 +60,7 @@ export default function App() {
         <Route path="/visa/e7-chef" element={<VisaE7ChefPage />} />
         <Route path="/visa/e7-overseas-sales" element={<VisaE7OverseasSalesPage />} />
         <Route path="/visa/e7-hospital" element={<VisaE7HospitalPage />} />
+        <Route path="/visa/e7-mechanical-engineer" element={<VisaE7MechanicalEngineerPage />} />
         <Route path="/visa/d10-to-e7" element={<VisaD10ToE7Page />} />
         <Route path="/visa/d10" element={<VisaD10Page />} />
         <Route path="/visa/f2-7" element={<VisaF27Page />} />
