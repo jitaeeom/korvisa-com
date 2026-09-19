@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { KorvisaLogo } from "./Logo";
 
 const KAKAO_OPENCHAT_URL = "https://open.kakao.com/o/sR2KYbXb";
 const KAKAO_ICON_URL = "https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg";
@@ -75,7 +74,14 @@ export function Header() {
           className="min-w-0 shrink rounded-xl text-white outline-none ring-sky-400/0 transition hover:opacity-90 focus-visible:ring-2 focus-visible:ring-sky-400/60"
           aria-label="Korvisa.com 홈"
         >
-          <KorvisaLogo size="md" className="min-w-0" />
+          <img
+            src="/images/korvisa-logo-dark-header.png"
+            alt="KORVISA"
+            width={2172}
+            height={724}
+            className="h-[32px] w-auto max-w-[160px] object-contain object-left sm:h-[34px] sm:max-w-none"
+            decoding="async"
+          />
         </Link>
         <nav className="hidden items-center gap-0.5 md:flex" aria-label="주요 섹션">
           {nav.map((item) =>
