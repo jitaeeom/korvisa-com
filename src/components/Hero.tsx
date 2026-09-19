@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 /** 서울 주간 도심·한강 — 전문 톤, 로컬 파일 */
 const HERO_KOREA = "/images/hero-korea.png?v=6";
-const HERO_DIVERSE = "/images/hero-diverse.jpg?v=1";
+const HERO_DIVERSE = "/images/home-hero-global-talent.png";
 
 export function Hero() {
   const [heroImageOk, setHeroImageOk] = useState(true);
@@ -106,7 +106,7 @@ export function Hero() {
                 alt="다양한 국적을 가진 사람들이 함께하는 모습 — 한국 체류·취업을 상징"
                 width={1600}
                 height={1067}
-                className="aspect-[4/3] w-full object-cover sm:aspect-[5/4]"
+                className="aspect-[4/3] w-full object-cover object-center sm:aspect-[5/4]"
                 loading="eager"
                 decoding="async"
               />
@@ -126,7 +126,7 @@ export function Hero() {
                 alt="다양한 국적을 가진 사람들이 함께하는 모습"
                 width={1600}
                 height={1067}
-                className="aspect-[16/10] w-full object-cover"
+                className="aspect-[16/10] w-full object-cover object-[center_40%]"
                 loading="lazy"
                 decoding="async"
               />
