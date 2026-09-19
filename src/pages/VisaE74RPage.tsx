@@ -14,7 +14,7 @@ import {
   E74R_STEPS,
 } from "../data/visaE74r";
 
-const HERO_IMAGE = "/images/visas/f2.png?v=6";
+const HERO_IMAGE = "/images/e7-4r-hero.png";
 
 export function VisaE74RPage() {
   useEffect(() => {
@@ -43,14 +43,13 @@ export function VisaE74RPage() {
           <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 shadow-lift">
             <img
               src={HERO_IMAGE}
-              alt="E-7-4R 지역특화형 숙련기능인력 비자 안내"
+              alt="E-7-4R 지역특화형 숙련기능인력 제조업 외국인 근로자"
               width={1400}
               height={560}
-              className="aspect-[21/9] w-full object-cover sm:aspect-[2.4/1]"
+              className="aspect-[21/9] w-full object-cover object-center sm:aspect-[2.4/1]"
               loading="eager"
               decoding="async"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/55 to-transparent sm:bg-gradient-to-r sm:from-ink-950 sm:via-ink-950/70 sm:to-transparent" />
           </div>
           <figcaption className="sr-only">E-7-4R 지역특화형 숙련기능인력 안내용 대표 이미지</figcaption>
         </figure>
