@@ -217,6 +217,16 @@ export function VisaE71Page() {
                     </Link>
                   </p>
                 ) : null}
+                {field.id === "it-software" ? (
+                  <p className="mt-4">
+                    <Link
+                      to="/visa/e7-software-developer"
+                      className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
+                    >
+                      응용 소프트웨어 개발자 E-7 자세히 보기 →
+                    </Link>
+                  </p>
+                ) : null}
                 {field.id === "sales-planning-other" ? (
                   <p className="mt-4">
                     <Link
