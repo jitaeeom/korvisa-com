@@ -8,6 +8,7 @@ export const PRERENDER_PATHS = [
   "/visa/e7",
   "/visa/e7-1",
   "/visa/e7-overseas-sales",
+  "/visa/e7-hospital",
   "/visa/e7-chef",
   "/visa/e7-4",
   "/visa/e7-4r",
@@ -121,6 +122,14 @@ export function visaE74RPageMeta(): PageMeta {
   );
 }
 
+export function visaE7HospitalPageMeta(): PageMeta {
+  return page(
+    "/visa/e7-hospital",
+    "병원 외국인 E-7 비자 | 의료코디네이터·상품기획전문가·보건복지부 추천서 - Korvisa",
+    "병원에서 외국인을 E-7 비자로 채용할 때 검토할 수 있는 의료코디네이터와 상품기획전문가의 차이, 외국인 자격요건, 의료기관 조건, 보건복지부 고용추천서와 필요서류를 확인하세요.",
+  );
+}
+
 export function visaE7ChefPageMeta(): PageMeta {
   return page(
     "/visa/e7-chef",
@@ -177,6 +186,7 @@ export function getPageMeta(pathname: string): PageMeta {
   if (path === "/representative") return representativePageMeta();
   if (path === "/visa/e7-1") return visaE71PageMeta();
   if (path === "/visa/e7-overseas-sales") return visaE7OverseasSalesPageMeta();
+  if (path === "/visa/e7-hospital") return visaE7HospitalPageMeta();
   if (path === "/visa/e7-chef") return visaE7ChefPageMeta();
   if (path === "/visa/e7-4") return visaE74PageMeta();
   if (path === "/visa/e7-4r") return visaE74RPageMeta();

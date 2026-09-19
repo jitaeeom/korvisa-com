@@ -953,6 +953,14 @@ F-5는 점수 경쟁이 아니라
               </p>
               <p>
                 <Link
+                  to="/visa/e7-hospital"
+                  className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
+                >
+                  병원 외국인 E-7 채용조건 확인하기 →
+                </Link>
+              </p>
+              <p>
+                <Link
                   to="/visa/e7-4"
                   className="text-sm font-semibold text-sky-300 transition hover:text-white hover:underline"
                 >
