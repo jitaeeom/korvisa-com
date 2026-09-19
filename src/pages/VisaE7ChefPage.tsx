@@ -18,7 +18,7 @@ import {
   E7CHEF_STEPS_REVIEW,
 } from "../data/visaE7Chef";
 
-const HERO_IMAGE = "/images/visas/e7.png?v=6";
+const HERO_IMAGE = "/images/e7-chef-hero.png";
 const WAGE_NOTICE_URL = "https://www.moj.go.kr/bbs/immigration/211/601892/artclView.do";
 
 export function VisaE7ChefPage() {
@@ -48,14 +48,13 @@ export function VisaE7ChefPage() {
           <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 shadow-lift">
             <img
               src={HERO_IMAGE}
-              alt="E-7 요리사 비자 안내"
+              alt="E-7 요리사 비자 외국인 전문 요리사 한국 외식업 취업"
               width={1400}
               height={560}
-              className="aspect-[21/9] w-full object-cover sm:aspect-[2.4/1]"
+              className="aspect-[21/9] w-full object-cover object-center sm:aspect-[2.4/1]"
               loading="eager"
               decoding="async"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/55 to-transparent sm:bg-gradient-to-r sm:from-ink-950 sm:via-ink-950/70 sm:to-transparent" />
           </div>
           <figcaption className="sr-only">외국인 요리사 E-7 비자 안내용 대표 이미지</figcaption>
         </figure>
