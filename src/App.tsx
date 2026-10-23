@@ -77,7 +77,12 @@ export default function App() {
         <Route path="/admin/login" element={<AdminLoginPage />} />
         <Route path="/admin" element={<AdminDashboardPage />} />
       </Routes>
-      {isAdminRoute ? null : <Footer />}
+      {isAdminRoute ? null : <><Footer /><div className="h-24 sm:hidden" aria-hidden="true" />
+        <nav aria-label="빠른 상담" className="fixed inset-x-0 bottom-0 z-30 grid grid-cols-3 gap-2 border-t border-white/20 bg-ink-950 p-3 pb-[max(12px,env(safe-area-inset-bottom))] text-center text-sm font-semibold sm:hidden">
+          <a href="tel:02-568-7192" className="rounded-xl bg-white px-2 py-3 text-ink-950">전화 상담</a>
+          <a href="https://open.kakao.com/o/sR2KYbXb" target="_blank" rel="noopener noreferrer" className="rounded-xl bg-[#FEE500] px-2 py-3 text-black">카카오톡</a>
+          <a href="/consult" className="rounded-xl bg-accent px-2 py-3 text-white">상담 신청</a>
+        </nav></>}
     </>
   );
 }
