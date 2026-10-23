@@ -1,3 +1,4 @@
+import { trackContact } from "../lib/contactAnalytics";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -48,5 +49,16 @@ export function AnalyticsTracker() {
     });
   }, [location]);
 
+  useEffect(() => {
+    const onClick = (event: MouseEvent) => {
+      const anchor = (event.target as Element | null)?.closest("a");
+      if (!anchor) return;
+      const href = anchor.getAttribute("href") ?? "";
+      if (href.startsWith("tel:")) trackContact("contact_phone_click", "phone");
+      if (href.startsWith("https://open.kakao.com/")) trackContact("contact_kakao_click", "kakao");
+    };
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, []);
   return null;
 }
