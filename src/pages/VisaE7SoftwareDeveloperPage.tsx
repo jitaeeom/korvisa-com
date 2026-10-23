@@ -173,7 +173,7 @@ export function VisaE7SoftwareDeveloperPage() {
               <article
                 key={job.code}
                 className={`rounded-3xl border p-6 ${
-                  job.highlight
+                  "highlight" in job && job.highlight
                     ? "border-sky-400/40 bg-sky-500/[0.08]"
                     : "border-white/10 bg-ink-900/40"
                 }`}
