@@ -58,8 +58,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (bodyText.length === 0) {
     return json(res, 400, { error: "내용을 입력해 주세요." });
   }
-  if (email.length === 0) {
-    return json(res, 400, { error: "이메일을 입력해 주세요." });
+  if (email.length === 0 && phone.length === 0) {
+    return json(res, 400, { error: "이메일 또는 연락처를 입력해 주세요." });
   }
   if (
     name.length > MAX_NAME ||
@@ -70,10 +70,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   ) {
     return json(res, 400, { error: "입력 길이가 너무 깁니다." });
   }
-  if (!EMAIL_RE.test(email)) {
+  if (email && !EMAIL_RE.test(email)) {
     return json(res, 400, { error: "이메일 형식이 올바르지 않습니다." });
   }
 
+  if (phone && !/^\+?[0-9 ()-]{7,50}$/.test(phone)) {
+    return json(res, 400, { error: "연락처 형식을 확인해 주세요." });
+  }
   const subject = title.length > 0 ? `[상담 문의] ${title}` : "[상담 문의] (제목 없음)";
   const text =
     `이름(작성자): ${name || "(없음)"}\n` +
@@ -91,7 +94,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     text,
   });
 
-  if (error) {
+  if (error || !data?.id) {
     console.error("[consult] Resend error:", error);
     return json(res, 502, { error: "메일 전송에 실패했습니다. 잠시 후 다시 시도해 주세요." });
   }
